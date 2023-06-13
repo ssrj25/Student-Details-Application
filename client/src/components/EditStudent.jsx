@@ -2,7 +2,7 @@ import  { useState,useEffect } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { editUser,getUser} from '../Service/api';
 import { useNavigate,useParams } from 'react-router-dom';
-import { addStudent } from '../Service/api';
+//import { addStudent } from '../Service/api';
 //import { getUser } from './../Service/api';
 
 const defaultValue = {
@@ -24,14 +24,23 @@ const EditStudent = () => {
     const navigate = useNavigate();
     const {id}= useParams();
 
-    useEffect(()=>{
+   /* useEffect(()=>{
         loadUserDetails();
 },[])
     
+
     const loadUserDetails=async()=>{
         const response = await getUser(id);
        
-        setUser(response.data);}
+        setUser(response.data);}*/
+        useEffect(() => {
+    const loadUserDetails = async () => {
+      const response = await getUser(id);
+      setUser(response.data);
+    };
+
+    loadUserDetails();
+  }, [id]); // Include 'id' in the dependency array
 
     const onValueChange = (e) => {
         setUser({...user, [e.target.name]: e.target.value})

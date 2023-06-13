@@ -1,14 +1,7 @@
-/*const AllStudents = () => {
 
-    return (
-        <p>Hello from AllStudents</p>
-    )
-}
 
-export default AllStudents;*/
-
-import react, { useState, useEffect } from 'react';
-import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, styled } from '@mui/material'
+import  { useState, useEffect } from 'react';
+import { Table, TableHead, TableCell,  TableRow, TableBody, Button, styled } from '@mui/material'
 import { getUsers, deleteUser } from '../Service/api';
 import { Link } from 'react-router-dom';
 
